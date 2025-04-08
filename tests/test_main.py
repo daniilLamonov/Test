@@ -1,4 +1,9 @@
 from datetime import datetime
+from fastapi import HTTPException
+
+import pytest
+
+from app.services import get_wallet_info
 from tests.conftest import client
 from app.db.models.wallet import Wallet
 
@@ -18,3 +23,6 @@ def test_get_wallets_endpoint(client):
     assert response.status_code == 200
     assert isinstance(response.json(), list)
     assert len(response.json()) == 1
+
+
+

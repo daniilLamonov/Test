@@ -14,7 +14,6 @@
 
 ```bash
 git clone https://github.com/daniillamonov/test.git
-cd test 
 ```
 
 ```bash

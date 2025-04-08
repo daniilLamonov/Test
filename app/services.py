@@ -1,6 +1,7 @@
+from fastapi import HTTPException
 from tronpy.providers import HTTPProvider
 from tronpy import Tron
-from tronpy.exceptions import AddressNotFound
+from tronpy.exceptions import AddressNotFound, BadAddress
 from dotenv import load_dotenv
 import os
 
@@ -8,14 +9,20 @@ load_dotenv()
 TRON_API_KEY = os.getenv("TRON_API_KEY")
 
 def get_wallet_info(address: str) -> dict:
+    if address == '':
+        raise HTTPException(status_code=400,
+                            detail='Address cannot be empty')
     client = Tron(HTTPProvider(api_key=TRON_API_KEY))
 
     try:
         resources = client.get_account_resource(address)
         balance = float(client.get_account_balance(address))
-
     except AddressNotFound:
-        return {"error": "Address not found"}
+        raise HTTPException(status_code=404,
+                            detail="Address not found")
+    except BadAddress:
+        raise HTTPException(status_code=400,
+                            detail="Invalid address")
 
     bandwidth_used = resources.get("NetUsed") or resources.get("freeNetUsed") or 0
     net_limit = resources.get("NetLimit", 0)

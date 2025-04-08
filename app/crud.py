@@ -8,3 +8,6 @@ def create_wallet_query(db: Session, **kwargs) -> Wallet:
     db.add(new_query)
     db.commit()
     return new_query
+
+def get_wallet_query(db: Session, pagination_skip: int, pagination_limit:int ) -> [Wallet]:
+    return db.query(Wallet).order_by(Wallet.date_added.desc()).offset(pagination_skip).limit(pagination_limit).all()

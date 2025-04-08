@@ -11,7 +11,7 @@ from app.crud import create_wallet_query
 
 app = FastAPI()
 
-@app.post('/wallet', tags=['wallet'], response_model=WalletResponse)
+@app.post('/wallets/add', tags=['wallet'], response_model=WalletResponse)
 def get_wallet(wallet_adrees: WalletRequest, db: Session = Depends(get_db)):
     wallet_data = get_wallet_info(wallet_adrees.address)
     db_query = create_wallet_query(db, **wallet_data)

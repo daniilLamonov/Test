@@ -1,0 +1,67 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Environment variables / secrets
+.env
+.env.*
+
+# macOS files
+.DS_Store
+
+# PyCharm project files
+.idea/
+
+# Pytest cache
+.pytest_cache/
+
+# MyPy cache
+.mypy_cache/
+
+# Pydantic compiled schema cache (v2)
+.pydantic/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Logs
+*.log
+
+# Alembic
+alembic.ini
+versions/
+
+# Docker
+*.pid
+*.tar
+*.db
+docker-compose.override.yml
+
+# Redis dumps
+dump.rdb
+*.rdb
+
+# Build / Distribution
+build/
+dist/
+*.egg-info/
+
+# Database files
+*.sqlite3
+*.db
+*.sql
+
+# Unit test result cache
+.cache/

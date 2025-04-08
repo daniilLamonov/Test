@@ -19,6 +19,7 @@ git clone https://github.com/daniillamonov/test.git
 ```bash
 pip install -r requirements.txt
 ```
+В файл .env.example добавьте TRON_API_KEY и переименуйте его в .env
 
 ### База данных
 
